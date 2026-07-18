@@ -32,7 +32,7 @@ export const defaultParticleSettings: ParticleSettings = {
   sizeMax: 3.5,
   speed: 1.8,
   linksEnabled: true,
-  linkColor: "#818cf8",
+  linkColor: "#fb0909",
   linkDistance: 150,
   linkOpacity: 0.12,
   hoverMode: "repulse",
