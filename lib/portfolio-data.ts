@@ -46,6 +46,14 @@ export interface SkillCategory {
   skills: string[];
 }
 
+export interface Interest {
+  /** Any emoji — keeps interests flexible without needing icon names. */
+  emoji: string;
+  label: string;
+  /** Optional one-liner shown under the label. */
+  note?: string;
+}
+
 export interface PortfolioData {
   name: string;
   initials: string;
@@ -62,6 +70,7 @@ export interface PortfolioData {
   experience: ExperienceItem[];
   projects: Project[];
   skillCategories: SkillCategory[];
+  interests: Interest[];
   socials: SocialLink[];
 }
 
@@ -179,6 +188,29 @@ export const portfolioData: PortfolioData = {
       title: "Tools",
       icon: "wrench",
       skills: ["Git", "Docker", "PostgreSQL", "AWS", "Linux", "CI/CD"],
+    },
+  ],
+
+  // ---- Interests -----------------------------------------------------------
+  interests: [
+    {
+      emoji: "⛳",
+      label: "Golf",
+      note: "Weekend rounds and range sessions. [Edit me]",
+    },
+    {
+      emoji: "🥋",
+      label: "Brazilian Jiu-Jitsu",
+      note: "Training since [year] — currently a [belt] belt.",
+    },
+    {
+      emoji: "🛹",
+      label: "Skateboarding",
+    },
+    {
+      emoji: "📈",
+      label: "Investing",
+      note: "Markets, long-term value, and the occasional deep dive.",
     },
   ],
 

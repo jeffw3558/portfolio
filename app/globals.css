@@ -25,3 +25,13 @@ body {
   background: rgba(129, 140, 248, 0.35);
   color: #fff;
 }
+
+/* Hide the native scrollbar on horizontal carousels while keeping them scrollable. */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
