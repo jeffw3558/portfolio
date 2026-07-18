@@ -1,8 +1,15 @@
 "use client";
 
+import { useEffect, useMemo, useState } from "react";
 import Particles, { ParticlesProvider } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
-import type { Engine, ISourceOptions } from "@tsparticles/engine";
+import type { Engine } from "@tsparticles/engine";
+import {
+  buildParticleOptions,
+  defaultParticleSettings,
+  type ParticleSettings,
+} from "@/lib/particle-settings";
+import ParticleControls from "@/components/particle-controls";
 
 // Must be a stable module-level function — ParticlesProvider throws if the
 // init callback identity changes across renders.
@@ -10,54 +17,67 @@ const initEngine = async (engine: Engine): Promise<void> => {
   await loadSlim(engine);
 };
 
-// Subtle, slow-moving connected dots so the background never competes with
-// the content in front of it.
-const options: ISourceOptions = {
-  fullScreen: { enable: false },
-  background: { color: { value: "transparent" } },
-  fpsLimit: 60,
-  detectRetina: true,
-  // In tsparticles v4, resize is a top-level option (no longer under
-  // interactivity.events); it keeps the canvas buffer synced to the viewport.
-  resize: { enable: true, delay: 0.5 },
-  particles: {
-    number: { value: 60, density: { enable: true } },
-    color: { value: "#818cf8" },
-    shape: { type: "circle" },
-    opacity: { value: 0.35 },
-    size: { value: { min: 1, max: 2.5 } },
-    links: {
-      enable: true,
-      color: "#818cf8",
-      distance: 150,
-      opacity: 0.12,
-      width: 1,
-    },
-    move: {
-      enable: true,
-      speed: 0.5,
-      direction: "none",
-      random: false,
-      straight: false,
-      outModes: { default: "out" },
-    },
-  },
-  interactivity: {
-    events: {
-      onHover: { enable: true, mode: "grab" },
-    },
-    modes: {
-      grab: { distance: 140, links: { opacity: 0.25 } },
-    },
-  },
-};
+const STORAGE_KEY = "portfolio-particle-settings";
+
+// Changing the options prop tears down and rebuilds the particles container,
+// so settings are debounced: the panel UI updates instantly while the canvas
+// only rebuilds once the user pauses.
+function useDebounced<T>(value: T, delayMs: number): T {
+  const [debounced, setDebounced] = useState(value);
+  useEffect(() => {
+    const timeout = setTimeout(() => setDebounced(value), delayMs);
+    return () => clearTimeout(timeout);
+  }, [value, delayMs]);
+  return debounced;
+}
 
 export default function ParticlesBackground() {
+  const [settings, setSettings] = useState<ParticleSettings>(
+    defaultParticleSettings,
+  );
+  const [hydrated, setHydrated] = useState(false);
+
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        setSettings({ ...defaultParticleSettings, ...JSON.parse(stored) });
+      }
+    } catch {
+      // Corrupt stored settings — fall back to defaults.
+    }
+    setHydrated(true);
+  }, []);
+
+  useEffect(() => {
+    if (!hydrated) {
+      return;
+    }
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
+    } catch {
+      // Storage unavailable (private mode etc.) — settings just won't persist.
+    }
+  }, [settings, hydrated]);
+
+  const debouncedSettings = useDebounced(settings, 300);
+  const options = useMemo(
+    () => buildParticleOptions(debouncedSettings),
+    [debouncedSettings],
+  );
+
   return (
-    <div className="fixed inset-0 -z-10" aria-hidden="true">
-      <ParticlesProvider init={initEngine}>
-        <Particles id="tsparticles" options={options} className="h-full w-full" />
-      </ParticlesProvider>
-    </div>
+    <>
+      <div className="fixed inset-0 -z-10" aria-hidden="true">
+        <ParticlesProvider init={initEngine}>
+          <Particles
+            id="tsparticles"
+            options={options}
+            className="h-full w-full"
+          />
+        </ParticlesProvider>
+      </div>
+      <ParticleControls settings={settings} onChange={setSettings} />
+    </>
   );
 }
