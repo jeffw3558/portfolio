@@ -54,6 +54,8 @@ export interface PortfolioData {
   email: string;
   resumeUrl: string;
   about: {
+    /** Path to a portrait in /public (e.g. "/profile.jpg"), or null to show a placeholder. */
+    photo: string | null;
     bio: string[];
     education: Education[];
   };
@@ -76,6 +78,9 @@ export const portfolioData: PortfolioData = {
 
   // ---- About & Education ---------------------------------------------------
   about: {
+    // Drop your portrait into /public (e.g. public/profile.jpg) and change
+    // this to "/profile.jpg". Leave as null to show the placeholder card.
+    photo: null,
     bio: [
       "I'm a software engineer passionate about building products end to end — from designing resilient backend services to polishing frontend details. [Replace this with a short paragraph about who you are and what you love working on.]",
       "Outside of code, I enjoy [hobbies/interests]. I'm currently looking for [internships / new-grad roles / collaborations].",
