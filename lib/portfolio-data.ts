@@ -76,10 +76,10 @@ export interface PortfolioData {
 
 export const portfolioData: PortfolioData = {
   // ---- Identity ------------------------------------------------------------
-  name: "Your Name",
-  initials: "YN",
+  name: "Jeffrey Wang",
+  initials: "JW",
   tagline:
-    "Software engineer who enjoys building fast, reliable systems and clean user experiences.",
+    "Data Science & Economics at UC Berkeley.",
   location: "Berkeley, CA",
   email: "jeffw3558@berkeley.edu",
   // Drop your resume PDF into /public as resume.pdf (or change this path).
@@ -91,16 +91,16 @@ export const portfolioData: PortfolioData = {
     // this to "/profile.jpg". Leave as null to show the placeholder card.
     photo: null,
     bio: [
-      "I'm a software engineer passionate about building products end to end — from designing resilient backend services to polishing frontend details. [Replace this with a short paragraph about who you are and what you love working on.]",
-      "Outside of code, I enjoy [hobbies/interests]. I'm currently looking for [internships / new-grad roles / collaborations].",
+      "I'm a data science & economics student at UC Berkeley interested in Software Engineering.",
+      "Outside of code, I enjoy skatboarding, hiking, coaching, and all sorts of outdoor activities. I'm currently looking for Fall 2026 internships and 2027 new-grad roles.",
     ],
     education: [
       {
         school: "University of California, Berkeley",
-        degree: "B.S. in Electrical Engineering & Computer Science",
+        degree: "B.A. in Data Science & Economics",
         period: "2023 — 2027",
         details:
-          "Relevant coursework: Data Structures, Algorithms, Operating Systems, Machine Learning. [Edit me]",
+          "Relevant coursework: Structure and Interpretation of Computer Programs, Data Structures & Algorithms, Intro to Machine Learning, Principles of Data Science, Introduction to Artificial Intelligence, Discrete Math & Probability Theory, Concepts of Probability, Linear Algebra, Multivariable Calculus, ",
       },
     ],
   },
@@ -108,32 +108,34 @@ export const portfolioData: PortfolioData = {
   // ---- Experience (most recent first) --------------------------------------
   experience: [
     {
-      company: "Acme Corp",
-      role: "Software Engineering Intern",
-      period: "May 2026 — Aug 2026",
-      location: "San Francisco, CA",
+      company: "CME Group",
+      role: "Artificial Intelligence Research Intern",
+      period: "Aug 2026 — May 2026",
+      location: "Chicago, IL",
       highlights: [
-        "Built a real-time data pipeline processing X events/day, cutting latency by Y%. [Edit me]",
-        "Shipped a customer-facing dashboard used by N teams.",
+        "Designed and presented a 'Fantasy Futures' product concept for ESPN and CME Group by scraping market data and designing a educational UX to engage Gen Z/Millenial Users.",
+        "Conducted quantitative and qualitative research on fantasy and sports-betting partners (ESPN Fantasy, ESPN BET, FanDuel, Dream11), building revenue models, risk assessments, and partnership playbooks to inform CME’s retail strategy.",
       ],
     },
     {
-      company: "Campus Research Lab",
-      role: "Undergraduate Researcher",
-      period: "Sep 2025 — May 2026",
+      company: "Broctagon Fintech Group",
+      role: "Software Development Intern",
+      period: "May 2025 - July 2025",
+      location: "Singapore",
+      highlights: [
+        "Built a Python-based testing framework for evaluating Amazon Bedrock LLMs (Claude) across financial NLP tasks; implemented dynamic prompt generation, structured output parsing, and automated failure logging",
+        "Wrote modular call functions to transmit real-time data to Bedrock models, integrating robust error handling, retry logic, and streaming response support to ensure low-latency performance within a FastAPI backend",
+        "Compared Bedrock LLMs through custom benchmarks and prompt tuning, evaluating performance metrics (accuracy, cost, stability) to guide model selection for regulatory and client-facing use cases.",
+      ],
+    },
+    {
+      company: "Propulsion AI - Berkeley SkyDeck",
+      role: "Backend Developer",
+      period: "May 2024 — Aug 2024",
       location: "Berkeley, CA",
       highlights: [
-        "Worked on [research topic] under Prof. [Name].",
-        "Co-authored a workshop paper / built tooling used by the lab.",
-      ],
-    },
-    {
-      company: "Student Organization",
-      role: "Backend Developer",
-      period: "Jan 2025 — Present",
-      highlights: [
-        "Maintained services powering a site with X monthly visitors.",
-        "Mentored new members on Git workflows and code review.",
+        "Integrated GROBID and LLMs within a FastAPI framework to enhance PDF processing, providing highly structured text that improved the LLM’s overall accuracy and response quality.",
+        "Wrote a Python call function to send real-time data to language models (LLMs). Implemented dynamic request construction, robust error handling, and response parsing to ensure efficient, real-time data processing and integration into the application.",
       ],
     },
   ],
@@ -177,7 +179,7 @@ export const portfolioData: PortfolioData = {
     {
       title: "Languages",
       icon: "code",
-      skills: ["TypeScript", "Python", "Java", "Go", "SQL", "C"],
+      skills: ["TypeScript", "Python", "Java", "HTML/CSS", "SQL", "JavaScript"],
     },
     {
       title: "Frameworks",
@@ -187,7 +189,7 @@ export const portfolioData: PortfolioData = {
     {
       title: "Tools",
       icon: "wrench",
-      skills: ["Git", "Docker", "PostgreSQL", "AWS", "Linux", "CI/CD"],
+      skills: ["Git", "Docker", "MongoDB", "AWS", "Node.js", "Pandas"],
     },
   ],
 
@@ -201,11 +203,11 @@ export const portfolioData: PortfolioData = {
     {
       emoji: "🥋",
       label: "Brazilian Jiu-Jitsu",
-      note: "Training since [year] — currently a [belt] belt.",
+      note: "Training since 2023 — de la riva :)",
     },
     {
       emoji: "🛹",
-      label: "Skateboarding",
+      label: "Skateboarding; Heelflips for life",
     },
     {
       emoji: "📈",

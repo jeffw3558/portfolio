@@ -25,17 +25,17 @@ export interface ParticleSettings {
 }
 
 export const defaultParticleSettings: ParticleSettings = {
-  count: 180,
+  count: 60,
   color: "#fb0909",
-  opacity: 0.7,
-  sizeMin: 4,
-  sizeMax: 3.5,
-  speed: 1.8,
+  opacity: 0.3,
+  sizeMin: 1,
+  sizeMax: 2.5,
+  speed: 0.5,
   linksEnabled: true,
   linkColor: "#fb0909",
   linkDistance: 150,
-  linkOpacity: 0.12,
-  hoverMode: "repulse",
+  linkOpacity: 0.1,
+  hoverMode: "grab",
 };
 
 export function buildParticleOptions(s: ParticleSettings): ISourceOptions {
