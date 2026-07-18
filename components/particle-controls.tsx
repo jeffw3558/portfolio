@@ -39,10 +39,10 @@ function Slider({
   return (
     <div>
       <div className="mb-1 flex items-center justify-between">
-        <label htmlFor={id} className="text-xs text-zinc-400">
+        <label htmlFor={id} className="text-xs text-stone-400">
           {label}
         </label>
-        <span className="font-mono text-xs text-zinc-500">{value}</span>
+        <span className="font-mono text-xs text-stone-500">{value}</span>
       </div>
       <input
         id={id}
@@ -52,7 +52,7 @@ function Slider({
         step={step}
         value={value}
         onChange={(e) => onChange(Number(e.target.value))}
-        className="w-full accent-indigo-500"
+        className="w-full accent-accent"
       />
     </div>
   );
@@ -70,17 +70,17 @@ function ColorField({
   const id = `particle-${label.toLowerCase().replace(/\s+/g, "-")}`;
   return (
     <div className="flex items-center justify-between">
-      <label htmlFor={id} className="text-xs text-zinc-400">
+      <label htmlFor={id} className="text-xs text-stone-400">
         {label}
       </label>
       <div className="flex items-center gap-2">
-        <span className="font-mono text-xs text-zinc-500">{value}</span>
+        <span className="font-mono text-xs text-stone-500">{value}</span>
         <input
           id={id}
           type="color"
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className="h-6 w-8 cursor-pointer rounded border border-white/10 bg-transparent"
+          className="h-6 w-8 cursor-pointer rounded border border-stone-800 bg-transparent"
         />
       </div>
     </div>
@@ -101,9 +101,9 @@ export default function ParticleControls({
   return (
     <div className="fixed bottom-6 right-6 z-50">
       {open && (
-        <div className="absolute bottom-14 right-0 w-72 rounded-2xl border border-white/10 bg-[#0a0a0f]/90 p-5 shadow-2xl shadow-black/50 backdrop-blur-md">
+        <div className="absolute bottom-14 right-0 w-72 rounded-lg border border-stone-800 bg-[#0c0a09]/95 p-5 shadow-2xl shadow-black/50 backdrop-blur-md">
           <div className="mb-4 flex items-center justify-between">
-            <h3 className="text-sm font-semibold text-white">
+            <h3 className="text-sm font-semibold text-stone-100">
               Particle Settings
             </h3>
             <div className="flex items-center gap-1">
@@ -112,7 +112,7 @@ export default function ParticleControls({
                 onClick={() => onChange(defaultParticleSettings)}
                 aria-label="Reset to defaults"
                 title="Reset to defaults"
-                className="rounded-full p-1.5 text-zinc-400 transition-colors hover:bg-white/10 hover:text-white"
+                className="rounded-full p-1.5 text-stone-400 transition-colors hover:bg-stone-800 hover:text-stone-100"
               >
                 <RotateCcw size={14} />
               </button>
@@ -120,7 +120,7 @@ export default function ParticleControls({
                 type="button"
                 onClick={() => setOpen(false)}
                 aria-label="Close settings"
-                className="rounded-full p-1.5 text-zinc-400 transition-colors hover:bg-white/10 hover:text-white"
+                className="rounded-full p-1.5 text-stone-400 transition-colors hover:bg-stone-800 hover:text-stone-100"
               >
                 <X size={14} />
               </button>
@@ -174,11 +174,11 @@ export default function ParticleControls({
               onChange={(v) => set("color", v)}
             />
 
-            <div className="border-t border-white/10 pt-4">
+            <div className="border-t border-stone-800 pt-4">
               <div className="flex items-center justify-between">
                 <label
                   htmlFor="particle-links-enabled"
-                  className="text-xs text-zinc-400"
+                  className="text-xs text-stone-400"
                 >
                   Connecting Links
                 </label>
@@ -187,7 +187,7 @@ export default function ParticleControls({
                   type="checkbox"
                   checked={settings.linksEnabled}
                   onChange={(e) => set("linksEnabled", e.target.checked)}
-                  className="h-4 w-4 accent-indigo-500"
+                  className="h-4 w-4 accent-accent"
                 />
               </div>
               {settings.linksEnabled && (
@@ -217,10 +217,10 @@ export default function ParticleControls({
               )}
             </div>
 
-            <div className="border-t border-white/10 pt-4">
+            <div className="border-t border-stone-800 pt-4">
               <label
                 htmlFor="particle-hover-mode"
-                className="mb-1.5 block text-xs text-zinc-400"
+                className="mb-1.5 block text-xs text-stone-400"
               >
                 Hover Effect
               </label>
@@ -228,7 +228,7 @@ export default function ParticleControls({
                 id="particle-hover-mode"
                 value={settings.hoverMode}
                 onChange={(e) => set("hoverMode", e.target.value as HoverMode)}
-                className="w-full rounded-lg border border-white/10 bg-[#14141c] px-3 py-1.5 text-sm text-zinc-200 outline-none transition-colors focus:border-indigo-400/60"
+                className="w-full rounded-md border border-stone-800 bg-stone-900 px-3 py-1.5 text-sm text-stone-200 outline-none transition-colors focus:border-accent"
               >
                 {hoverModes.map((mode) => (
                   <option key={mode.value} value={mode.value}>
@@ -247,7 +247,7 @@ export default function ParticleControls({
         aria-label="Particle settings"
         aria-expanded={open}
         title="Particle settings"
-        className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-[#0a0a0f]/80 text-zinc-400 shadow-lg shadow-black/40 backdrop-blur-md transition-colors hover:border-indigo-400/60 hover:text-white"
+        className="flex h-11 w-11 items-center justify-center rounded-full border border-stone-700 bg-[#0c0a09]/90 text-stone-400 shadow-lg shadow-black/40 backdrop-blur-md transition-colors hover:border-accent hover:text-stone-100"
       >
         <SlidersHorizontal size={18} />
       </button>

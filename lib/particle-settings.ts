@@ -26,13 +26,13 @@ export interface ParticleSettings {
 
 export const defaultParticleSettings: ParticleSettings = {
   count: 60,
-  color: "#fb0909",
+  color: "#cd5c5c",
   opacity: 0.3,
   sizeMin: 1,
   sizeMax: 2.5,
   speed: 0.5,
   linksEnabled: true,
-  linkColor: "#fb0909",
+  linkColor: "#cd5c5c",
   linkDistance: 150,
   linkOpacity: 0.1,
   hoverMode: "grab",

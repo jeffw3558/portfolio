@@ -9,7 +9,6 @@
 // ============================================================================
 
 export type SocialIconName = "github" | "linkedin" | "mail";
-export type SkillIconName = "code" | "layers" | "wrench";
 
 export interface SocialLink {
   label: string;
@@ -24,12 +23,27 @@ export interface Education {
   details?: string;
 }
 
+export interface Club {
+  name: string;
+  role?: string;
+  period?: string;
+  description?: string;
+}
+
 export interface ExperienceItem {
   company: string;
+  /** Company website — the company name becomes a link when set. */
+  url?: string;
   role: string;
   period: string;
   location?: string;
   highlights: string[];
+}
+
+export interface Course {
+  /** Course code, e.g. "CS 61A". */
+  code: string;
+  name: string;
 }
 
 export interface Project {
@@ -38,12 +52,6 @@ export interface Project {
   tech: string[];
   github?: string;
   demo?: string;
-}
-
-export interface SkillCategory {
-  title: string;
-  icon: SkillIconName;
-  skills: string[];
 }
 
 export interface Interest {
@@ -65,11 +73,14 @@ export interface PortfolioData {
     /** Path to a portrait in /public (e.g. "/profile.jpg"), or null to show a placeholder. */
     photo: string | null;
     bio: string[];
-    education: Education[];
+  };
+  education: {
+    schools: Education[];
+    coursework: Course[];
+    clubs: Club[];
   };
   experience: ExperienceItem[];
   projects: Project[];
-  skillCategories: SkillCategory[];
   interests: Interest[];
   socials: SocialLink[];
 }
@@ -82,25 +93,78 @@ export const portfolioData: PortfolioData = {
     "Data Science & Economics at UC Berkeley.",
   location: "Berkeley, CA",
   email: "jeffw3558@berkeley.edu",
-  // Drop your resume PDF into /public as resume.pdf (or change this path).
-  resumeUrl: "/resume.pdf",
+  // Files in /public are served from the site root — reference them with a
+  // leading "/" and no "public" prefix.
+  resumeUrl: "/Jeffrey Wang Resume.pdf",
 
   // ---- About & Education ---------------------------------------------------
   about: {
     // Drop your portrait into /public (e.g. public/profile.jpg) and change
     // this to "/profile.jpg". Leave as null to show the placeholder card.
-    photo: null,
+    photo: "/jeff_portfolio.jpg",
     bio: [
-      "I'm a data science & economics student at UC Berkeley interested in Software Engineering.",
-      "Outside of code, I enjoy skatboarding, hiking, coaching, and all sorts of outdoor activities. I'm currently looking for Fall 2026 internships and 2027 new-grad roles.",
+      "Hello there! My name is Jeff. I study at UC Berkeley, where I am pursuing a B.A. in Data Science and Economics.",
+      "I am interested in software engineering, distributed systems, and cryptography!",
     ],
-    education: [
+  },
+
+  // ---- Education -----------------------------------------------------------
+  education: {
+    schools: [
       {
         school: "University of California, Berkeley",
         degree: "B.A. in Data Science & Economics",
         period: "2023 — 2027",
         details:
-          "Relevant coursework: Structure and Interpretation of Computer Programs, Data Structures & Algorithms, Intro to Machine Learning, Principles of Data Science, Introduction to Artificial Intelligence, Discrete Math & Probability Theory, Concepts of Probability, Linear Algebra, Multivariable Calculus, ",
+          "go bears!",
+      },
+      {
+        school: "Diamond Bar High School",
+        period: "2019 — 2023",
+        details: "best high school in the whole wide world!",
+        degree: "High School Diploma"
+      },
+    ],
+    // Each entry renders as "CODE — Name". Codes below are standard Berkeley
+    // numbers — double-check they match the courses you actually took.
+    coursework: [
+      { code: "CS 61A", name: "Structure and Interpretation of Computer Programs" },
+      { code: "CS 61B", name: "Data Structures & Algorithms" },
+      { code: "CS 70", name: "Discrete Math & Probability Theory" },
+      { code: "CS 188", name: "Introduction to Artificial Intelligence" },
+      { code: "CS 189", name: "Intro to Machine Learning" },
+      { code: "DATA 8", name: "Foundations of Data Science" },
+      { code: "DATA 100", name: "Principles of Data Science" },
+      { code: "DATA C104", name: "Human Contexts and Ethics of Data" },
+      { code: "STAT 134", name: "Concepts of Probability" },
+      { code: "STAT 144", name: "Data Mining and Analytics" },
+      { code: "MATH 54", name: "Linear Algebra" },
+      { code: "MATH 53", name: "Multivariable Calculus" },
+    ],
+    clubs: [
+      {
+        name: "Taiwanese American Student Association",
+        role: "Senior Advisor",
+        period: "2025 — Present",
+        description: "sp25: treasurer intern, fa25: fam head, sp26: internal vice president",
+      },
+      {
+        name: "SBC Strategy Consulting",
+        role: "Senior Consultant",
+        period: "2025 — Present",
+        description: "clients: adidas basketball, cme group",
+      },
+      {
+        name: "Sigma Nu Fraternity",
+        role: "Beta Psi Chapter",
+        period: "2026 — Present",
+        description: "-1769",
+      },
+      {
+        name: "Berkeley Residential Life",
+        role: "Resident Assistant",
+        period: "2024 — 2026",
+        description: "positions: blue ra, gold ra; unit 1 deutsch",
       },
     ],
   },
@@ -109,18 +173,20 @@ export const portfolioData: PortfolioData = {
   experience: [
     {
       company: "CME Group",
+      url: "https://www.cmegroup.com",
       role: "Artificial Intelligence Research Intern",
-      period: "Aug 2026 — May 2026",
+      period: "Aug 2025 — May 2026",
       location: "Chicago, IL",
       highlights: [
-        "Designed and presented a 'Fantasy Futures' product concept for ESPN and CME Group by scraping market data and designing a educational UX to engage Gen Z/Millenial Users.",
+        "Designed and presented a 'Fantasy Futures' product concept for ESPN and CME Group by scraping market data and designing an educational UX to engage Gen Z/Millennial users.",
         "Conducted quantitative and qualitative research on fantasy and sports-betting partners (ESPN Fantasy, ESPN BET, FanDuel, Dream11), building revenue models, risk assessments, and partnership playbooks to inform CME’s retail strategy.",
       ],
     },
     {
       company: "Broctagon Fintech Group",
+      url: "https://www.broctagon.com",
       role: "Software Development Intern",
-      period: "May 2025 - July 2025",
+      period: "May 2025 — July 2025",
       location: "Singapore",
       highlights: [
         "Built a Python-based testing framework for evaluating Amazon Bedrock LLMs (Claude) across financial NLP tasks; implemented dynamic prompt generation, structured output parsing, and automated failure logging",
@@ -174,45 +240,53 @@ export const portfolioData: PortfolioData = {
     },
   ],
 
-  // ---- Skills --------------------------------------------------------------
-  skillCategories: [
-    {
-      title: "Languages",
-      icon: "code",
-      skills: ["TypeScript", "Python", "Java", "HTML/CSS", "SQL", "JavaScript"],
-    },
-    {
-      title: "Frameworks",
-      icon: "layers",
-      skills: ["React", "Next.js", "Node.js", "FastAPI", "Tailwind CSS"],
-    },
-    {
-      title: "Tools",
-      icon: "wrench",
-      skills: ["Git", "Docker", "MongoDB", "AWS", "Node.js", "Pandas"],
-    },
-  ],
-
   // ---- Interests -----------------------------------------------------------
   interests: [
     {
+      emoji: "🕺",
+      label: "dancing",
+      note: "popping, tutting, krump, n groovin",
+    },
+    {
+      emoji: "🌐",
+      label: "crypto",
+      note: "stablecoin infra, defi, yield farming, mining",
+    },
+    {
+      emoji: "📸",
+      label: "cinematography",
+      note: "ig: jeff.wangg"
+    },
+    { 
       emoji: "⛳",
-      label: "Golf",
-      note: "Weekend rounds and range sessions. [Edit me]",
+      label: "golf",
+      note: "7 handicap, youth coach, 73 best round",
     },
     {
       emoji: "🥋",
-      label: "Brazilian Jiu-Jitsu",
-      note: "Training since 2023 — de la riva :)",
+      label: "brazilian jiu-jitsu",
+      note: "training since 2023 — de la riva :)",
     },
-    {
-      emoji: "🛹",
-      label: "Skateboarding; Heelflips for life",
-    },
+    
     {
       emoji: "📈",
-      label: "Investing",
-      note: "Markets, long-term value, and the occasional deep dive.",
+      label: "investing",
+      note: "watch the bond markets!!",
+    },
+    {
+      emoji: "🏔️",
+      label: "backpacking",
+      note: "oregon is so pretty",
+    },
+    {
+      emoji: "⛹️",
+      label: "basketball",
+      note: "i spam 3s",
+    },
+    {
+      emoji: "⚽",
+      label: "soccer",
+      note: "midfield",
     },
   ],
 
@@ -220,12 +294,12 @@ export const portfolioData: PortfolioData = {
   socials: [
     {
       label: "GitHub",
-      href: "https://github.com/yourusername",
+      href: "https://github.com/jeffw3558",
       icon: "github",
     },
     {
       label: "LinkedIn",
-      href: "https://www.linkedin.com/in/yourusername",
+      href: "https://www.linkedin.com/in/jeffreywangg",
       icon: "linkedin",
     },
     {

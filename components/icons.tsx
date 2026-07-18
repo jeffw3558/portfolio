@@ -1,6 +1,6 @@
-import { Code, Layers, Mail, Wrench, type LucideProps } from "lucide-react";
+import { Mail, type LucideProps } from "lucide-react";
 import type { ComponentType } from "react";
-import type { SkillIconName, SocialIconName } from "@/lib/portfolio-data";
+import type { SocialIconName } from "@/lib/portfolio-data";
 
 export type IconProps = LucideProps;
 
@@ -42,10 +42,4 @@ export const socialIcons: Record<SocialIconName, ComponentType<IconProps>> = {
   github: BrandGithub,
   linkedin: BrandLinkedin,
   mail: Mail,
-};
-
-export const skillIcons: Record<SkillIconName, ComponentType<IconProps>> = {
-  code: Code,
-  layers: Layers,
-  wrench: Wrench,
 };

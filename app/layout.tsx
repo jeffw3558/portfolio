@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
+import "@fontsource-variable/inter";
 import "./globals.css";
 import { portfolioData } from "@/lib/portfolio-data";
 import ParticlesBackground from "@/components/particles-background";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
-  title: `${portfolioData.name} | Software Engineer`,
+  title: {
+    default: portfolioData.name,
+    template: `%s — ${portfolioData.name}`,
+  },
   description: portfolioData.tagline,
 };
 
@@ -16,12 +20,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body
-        className={`${GeistSans.variable} ${GeistMono.variable} bg-[#0a0a0f] font-sans text-zinc-100 antialiased`}
-      >
+    <html lang="en">
+      <body className="flex min-h-screen flex-col bg-[#0c0a09] font-sans text-stone-200 antialiased">
         <ParticlesBackground />
-        {children}
+        <Navbar />
+        <main className="mx-auto w-full max-w-5xl flex-1 px-6 pb-24 pt-28 sm:pt-32">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

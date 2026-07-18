@@ -9,9 +9,9 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@fontsource-variable/inter": "^5.2.8",
     "@tsparticles/react": "^4.3.2",
     "@tsparticles/slim": "^4.3.2",
-    "geist": "^1.7.2",
     "lucide-react": "^1.25.0",
     "next": "15.5.20",
     "react": "19.1.0",
