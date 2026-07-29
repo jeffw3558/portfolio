@@ -209,34 +209,27 @@ export const portfolioData: PortfolioData = {
   // ---- Projects ------------------------------------------------------------
   projects: [
     {
-      name: "Project One",
+      name: "Alumni Directory",
       description:
-        "A short one-or-two sentence description of what this project does and why it's interesting. [Edit me]",
-      tech: ["Next.js", "TypeScript", "PostgreSQL"],
-      github: "https://github.com/yourusername/project-one",
-      demo: "https://project-one.example.com",
+        "Built Flask alumni directory platform supporting 250+ profiles with SQLAlchemy models and admin CRUD workflows. Developed verification pipeline with Flask-WTF validation and SQLAlchemy constraints to prevent duplicate profiles. Implemented Alpine.js/Tailwind search and filtering across 6+ alumni attributes for efficient member discovery",
+      tech: ["Python", "Flask", "SQLAlchemy","SQlite"],
+      github: "https://github.com/tasa-berkeley/tasa_website",
+      demo: "https://tasa.studentorg.berkeley.edu/alumni-directory",
     },
     {
-      name: "Project Two",
+      name: "Dynamic Social Recovery Protocol",
       description:
-        "Another project — maybe a CLI tool, a game, or a class project you're proud of.",
-      tech: ["Python", "FastAPI", "Docker"],
-      github: "https://github.com/yourusername/project-two",
+        "Engineered a zero-database wallet recovery smart contract storing threshold-encrypted guardian payloads directly on-chain. Integrated ZK-Email TypeScript SDK to validate email DKIM signatures on-chain, eliminating centralized databases.Implemented 48-hour timelock queue using Foundry fuzzing, achieving 100% test coverage across 50k+ simulated attacks",
+      tech: ["Solidity", "Foundry", "Typescript", "Node.js", "ZK-Email", "Lit Protocol"],
+      github: "https://github.com/jeffw3558/dynamic_social_recovery_protocol",
     },
     {
-      name: "Project Three",
+      name: "Cloud Native Video Processing & Streaming Platform",
       description:
-        "Projects without a live demo just show the GitHub link; without a repo link they show demo only.",
-      tech: ["Go", "gRPC", "Redis"],
-      github: "https://github.com/yourusername/project-three",
-      demo: "https://project-three.example.com",
-    },
-    {
-      name: "Project Four",
-      description:
-        "Add or remove entries in lib/portfolio-data.ts and the grid updates automatically.",
-      tech: ["React", "Tailwind CSS", "Vite"],
-      github: "https://github.com/yourusername/project-four",
+        "Engineered asynchronous FFmpeg transcoding pipeline using GCP Pub/Sub, cutting video processing latency by 40%. Developed Next.js and Firebase serverless API to stream GCS video assets with sub-200ms latency. Implemented Firebase Auth and Cloud Run service isolation to block 100% of unauthorized upload requests",
+      tech: ["Typescript", "Next.js", "Firebase", "Docker", "FFmpeg", "GCP Pub/Sub"],
+      github: "https://github.com/jeffw3558/cloud-native-video-processing-streaming-platform",
+      demo: "google.com",
     },
   ],
 
