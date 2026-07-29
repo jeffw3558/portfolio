@@ -95,7 +95,7 @@ export const portfolioData: PortfolioData = {
   email: "jeffw3558@berkeley.edu",
   // Files in /public are served from the site root — reference them with a
   // leading "/" and no "public" prefix.
-  resumeUrl: "/Jeffrey_Wang__Resume.pdf",
+  resumeUrl: "/Jeffrey_Wang_Resume.pdf",
 
   // ---- About & Education ---------------------------------------------------
   about: {
