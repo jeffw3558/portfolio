@@ -211,10 +211,10 @@ export const portfolioData: PortfolioData = {
     {
       name: "Alumni Directory",
       description:
-        "Built Flask alumni directory platform supporting 250+ profiles with SQLAlchemy models and admin CRUD workflows. Developed verification pipeline with Flask-WTF validation and SQLAlchemy constraints to prevent duplicate profiles. Implemented Alpine.js/Tailwind search and filtering across 6+ alumni attributes for efficient member discovery",
-      tech: ["Python", "Flask", "SQLAlchemy","SQlite"],
+        "Architected a feature-driven graph engine that renders a student org's cabinet as an interactive big/little lineage map, letting users rebuild the tree across 6 organizing features (big/little, position, major, intern class, class year) from a single selector. Modeled a self-referential SQLAlchemy schema with a generic feature-serialization layer powering a Cytoscape.js + dagre top-down visualization with hover-to-trace lineage, live filtering, and click-through member profiles. Shipped a no-code admin CMS so non-technical officers manage 100% of member data with cycle-detection safeguards, backed by a 43-case pytest suite and deployed to production on UC Berkeley OCF.",
+      tech: ["Python", "Flask", "SQLAlchemy","JavaScript", "Cytoscape.js", "Tailwind CSS", "pytest","Alpine.js"],
       github: "https://github.com/tasa-berkeley/tasa_website",
-      demo: "https://tasa.studentorg.berkeley.edu/alumni-directory",
+      demo: "https://tasa.studentorg.berkeley.edu/alumni",
     },
     {
       name: "Dynamic Social Recovery Protocol",
