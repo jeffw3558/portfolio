@@ -121,7 +121,7 @@ export const portfolioData: PortfolioData = {
       {
         school: "Diamond Bar High School",
         period: "2019 — 2023",
-        details: "best high school in the whole wide world!",
+        details: "co'23 vice president",
         degree: "High School Diploma"
       },
     ],
@@ -221,14 +221,14 @@ export const portfolioData: PortfolioData = {
       description:
         "Engineered a zero-database wallet recovery smart contract storing threshold-encrypted guardian payloads directly on-chain. Integrated ZK-Email TypeScript SDK to validate email DKIM signatures on-chain, eliminating centralized databases.Implemented 48-hour timelock queue using Foundry fuzzing, achieving 100% test coverage across 50k+ simulated attacks",
       tech: ["Solidity", "Foundry", "Typescript", "Node.js", "ZK-Email", "Lit Protocol"],
-      github: "https://github.com/jeffw3558/dynamic_social_recovery_protocol",
+      github: "https://github.com/jeffw3558/Dynamic-Social-Recovery-Protocol",
     },
     {
       name: "Cloud Native Video Processing & Streaming Platform",
       description:
         "Engineered asynchronous FFmpeg transcoding pipeline using GCP Pub/Sub, cutting video processing latency by 40%. Developed Next.js and Firebase serverless API to stream GCS video assets with sub-200ms latency. Implemented Firebase Auth and Cloud Run service isolation to block 100% of unauthorized upload requests",
       tech: ["Typescript", "Next.js", "Firebase", "Docker", "FFmpeg", "GCP Pub/Sub"],
-      github: "https://github.com/jeffw3558/cloud-native-video-processing-streaming-platform",
+      github: "https://github.com/jeffw3558/youtube-streaming-platform",
       demo: "google.com",
     },
   ],
