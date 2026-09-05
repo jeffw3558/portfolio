@@ -160,12 +160,19 @@ export const portfolioData: PortfolioData = {
         period: "2026 — Present",
         description: "-1769",
       },
+       {
+        name: "Berk1337; UC Berkeley Cybersecurity Club",
+        role: "Lab Committee",
+        period: "2026-Present",
+        description: "Lab Committee, Hacks and Crafts Team",
+      },
       {
         name: "Berkeley Residential Life",
         role: "Resident Assistant",
         period: "2024 — 2026",
         description: "positions: blue ra, gold ra; unit 1 deutsch",
       },
+     
     ],
   },
 
